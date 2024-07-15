@@ -1,14 +1,15 @@
 #!/bin/bash
 
 # ASCII art
-
-echo "                                       __               "
-echo "  ____    ___    _ __   __    _____   /\ \__     ____   "
-echo " / ,__\  /'___\ /\` __\/\_\  /\ '__`\ \ \ ,_\   / ,__\  "
-echo "/\__, `\/\ \__/ \ \ \/ \/\ \ \ \ \_\ \ \ \ \/  /\__, `\ "
-echo "\/\____/\ \____\ \ \_\  \ \ \ \ \ ,__/  \ \ \_ \/\____/ "
-echo " \/___/  \/____/  \/_/   \/_/  \ \ \/    \ \__\ \/___/  "
-ehco "                                \/_/      \/__/         "
+cat <<'EOF'
+                                       __               
+  ____    ___    _ __   __    _____   /\ \__     ____   
+ / ,__\  /'___\ /\` __\/\_\  /\ '__`\ \ \ ,_\   / ,__\  
+/\__, `\/\ \__/ \ \ \/ \/\ \ \ \ \_\ \ \ \ \/  /\__, `\ 
+\/\____/\ \____\ \ \_\  \ \ \ \ \ ,__/  \ \ \_ \/\____/ 
+ \/___/  \/____/  \/_/   \/_/  \ \ \/    \ \__\ \/___/  
+                                \/_/      \/__/         
+EOF
 
 echo "A Curl/Wget scripts for automating my entire setup workflow for deb/rpm systems"
 echo "sanjay7178 : sanjay7178.github.io "
@@ -20,7 +21,6 @@ choose_shell() {
     echo "2) bash"
     echo "3) other"
     read -rp "Enter the number of your choice: " shell_choice
-
     case $shell_choice in
         1) shell="zsh";;
         2) shell="bash";;
@@ -33,40 +33,34 @@ choose_shell() {
             shell="bash"
             ;;
     esac
-
     echo "Chosen shell: $shell"
 }
-
 # Function to list and choose script
 choose_script() {
     echo "Available scripts:"
     # You can customize the scripts listed here
-    echo "1) script1.sh"
+    echo "1) homebrew.sh"
     echo "2) script2.sh"
     read -rp "Enter the number of the script to run: " script_choice
-
     case $script_choice in
-        1) script="script1.sh";;
+        1) script="homebrew.sh";;
         2) script="script2.sh";;
         *) 
             echo "Invalid choice, defaulting to script1.sh."
             script="script1.sh"
             ;;
     esac
-
     echo "Chosen script: $script"
 }
-
 # Function to check if the script requires root permissions
 check_root_permission() {
     read -rp "Does the script require root permissions? (y/n): " root_permission
     if [[ $root_permission == "y" || $root_permission == "Y" ]]; then
-        sudo "$shell" "$script"
+        sudo curl -sSL "https://sanjay7178.github.io/scripts/scripts/$script" | "$shell"
     else
-        "$shell" "$script"
+        curl -sSL "https://sanjay7178.github.io/scripts/scripts/$script" | "$shell"
     fi
 }
-
 # Main script execution
 choose_shell
 choose_script
