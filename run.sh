@@ -9,6 +9,7 @@ echo "/\__, `\/\ \__/ \ \ \/ \/\ \ \ \ \_\ \ \ \ \/  /\__, `\ "
 echo "\/\____/\ \____\ \ \_\  \ \ \ \ \ ,__/  \ \ \_ \/\____/ "
 echo " \/___/  \/____/  \/_/   \/_/  \ \ \/    \ \__\ \/___/  "
 ehco "                                \/_/      \/__/         "
+
 echo "A Curl/Wget scripts for automating my entire setup workflow for deb/rpm systems"
 echo "sanjay7178 : sanjay7178.github.io "
 

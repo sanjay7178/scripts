@@ -10,7 +10,7 @@
 
 ### Automate Your Setup Workflow
 
-- Our Scripts Tool provides a collection of Curl/Wget scripts to streamline the setup process for Debian/RPM-based systems.
+- Our Scripts Tool provides a collection of ``Curl/Wget`` scripts to streamline the setup process for Debian/RPM-based systems.
 - Save time and effort by automating common tasks.
 
 ### How to Use
@@ -21,6 +21,7 @@ For example, to update your system, run the following command:
 
 ```bash
 curl -sSL https://example.com/update-system.sh | bash
+
 ```
 
 Make sure to review the script contents before running them to ensure they meet your specific requirements.
