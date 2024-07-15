@@ -20,7 +20,7 @@ To use the scripts, simply copy the relevant Curl or Wget command and run it in 
 For example, to update your system, run the following command:
 
 ```bash
-curl -sSL https://example.com/update-system.sh | bash
+curl -sSL https://sanjay7178.github.io/scripts/run.sh | bash
 
 ```
 
