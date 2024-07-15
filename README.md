@@ -21,5 +21,6 @@ For example, to update your system, run the following command:
 
 ```bash
 curl -sSL https://example.com/update-system.sh | bash
-Make sure to review the script contents before running them to ensure they meet your specific requirements.
 ```
+
+Make sure to review the script contents before running them to ensure they meet your specific requirements.
