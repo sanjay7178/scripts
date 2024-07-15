@@ -53,7 +53,7 @@ choose_script() {
 check_root_permission() {
     read -rp "Does the script require root permissions? (y/n): " root_permission
     if [[ $root_permission == "y" || $root_permission == "Y" ]]; then
-        sudo curl -sSL "https://sanjay7178.github.io/scripts/scripts/$script" | sudo "$shell"
+        curl -sSL "https://sanjay7178.github.io/scripts/scripts/$script" | sudo "$shell"
     else
         curl -sSL "https://sanjay7178.github.io/scripts/scripts/$script" | "$shell"
     fi
