@@ -21,47 +21,45 @@ choose_shell() {
     echo "2) bash"
     echo "3) other"
     read -rp "Enter the number of your choice: " shell_choice
+
     case $shell_choice in
         1) shell="zsh";;
         2) shell="bash";;
         3) 
             read -rp "Enter the name of the shell: " custom_shell
-            shell="$custom_shell"
+            shell=$custom_shell
             ;;
-        *) 
-            echo "Invalid choice, defaulting to bash."
-            shell="bash"
-            ;;
+        *) echo "Invalid choice"; exit 1;;
     esac
     echo "Chosen shell: $shell"
 }
+
 # Function to list and choose script
 choose_script() {
     echo "Available scripts:"
-    # You can customize the scripts listed here
     echo "1) homebrew.sh"
     echo "2) script2.sh"
     read -rp "Enter the number of the script to run: " script_choice
+
     case $script_choice in
         1) script="homebrew.sh";;
         2) script="script2.sh";;
-        *) 
-            echo "Invalid choice, defaulting to script1.sh."
-            script="script1.sh"
-            ;;
+        *) echo "Invalid choice"; exit 1;;
     esac
     echo "Chosen script: $script"
 }
-# Function to check if the script requires root permissions
+
+# Function to check root permission and run the script
 check_root_permission() {
     read -rp "Does the script require root permissions? (y/n): " root_permission
     if [[ $root_permission == "y" || $root_permission == "Y" ]]; then
-        sudo curl -sSL "https://sanjay7178.github.io/scripts/scripts/$script" | "$shell"
+        sudo curl -sSL "https://sanjay7178.github.io/scripts/scripts/$script" | sudo "$shell"
     else
         curl -sSL "https://sanjay7178.github.io/scripts/scripts/$script" | "$shell"
     fi
 }
-# Main script execution
+
+# Call the functions
 choose_shell
 choose_script
 check_root_permission
